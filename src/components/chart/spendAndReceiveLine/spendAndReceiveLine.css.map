@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,OAAO,EAAE,IAAK;EACd,eAAe,EAAE,MAAO;EACxB,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "spendAndReceiveLine.scss"
+    ],
+    "names": [],
+    "file": "spendAndReceiveLine.css"
+}
