@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 
 export default function Topbar(props) {
+  console.log(props.data);
   let history = useHistory();
   return (
     <div
@@ -27,15 +28,18 @@ export default function Topbar(props) {
           </div>
           <div className="topbarIconContainer">
             {props.data != null ? (
-              <h3
-                id="logut111"
-                onClick={() => {
-                  props.setContinueData(null);
-                  history.push("signUp");
-                }}
-              >
-                Logout
-              </h3>
+              <>
+                <h3>Hi, {props.data[0].fName}</h3>
+                <h3
+                  id="logut111"
+                  onClick={() => {
+                    props.setContinueData(null);
+                    history.push("signUp");
+                  }}
+                >
+                  Logout
+                </h3>
+              </>
             ) : (
               <Settings />
             )}
