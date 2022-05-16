@@ -5,7 +5,7 @@ import { AssignmentTurnedIn, ArrowForward } from "@material-ui/icons";
 import timestamp from "time-stamp";
 
 const TransactionComplete = (props) => {
-  const txId = Math.floor(100000000 + Math.random() * 900000000000);
+  const txId = "xxxxxxxxxx";
   return (
     <div className={classes.container}>
       <div className={classes.status}>

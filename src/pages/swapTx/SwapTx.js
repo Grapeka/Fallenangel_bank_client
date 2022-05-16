@@ -21,10 +21,10 @@ const SwapTx = (props) => {
   }, []);
   const heads = [
     "Transaction ID",
+    "CitizenId",
     "From",
     "To",
     "Value",
-    "Rate",
     "Date and time",
   ];
   const swapData = [

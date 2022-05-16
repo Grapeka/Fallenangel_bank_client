@@ -149,6 +149,7 @@ const UserInputSwap = (props) => {
       if (err) {
         console.log(err);
       } else {
+        props.setEx(Object.values(res.data.rates)[0]);
         setExchange(Object.values(res.data.rates)[0]);
       }
     });

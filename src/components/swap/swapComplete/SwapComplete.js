@@ -28,11 +28,11 @@ const SwapComplete = (props) => {
         <div className={classes.minorDetails}>
           <div className={classes.eachDetail}>
             <h4>TransactionID</h4>
-            <span>{Math.floor(100000000 + Math.random() * 900000000000)}</span>
+            <span>xxxxxxxxxx</span>
           </div>
           <div className={classes.eachDetail}>
             <h4>Amount</h4>
-            <span>{props.submitValue.value}</span>
+            <span>{props.ex}</span>
           </div>
           <div className={classes.eachDetail}>
             <h4>Exchange rate</h4>
@@ -59,7 +59,7 @@ const SwapComplete = (props) => {
         >
           Back to swap
         </Button>
-        <Link to="/transactions" style={{ width: "100%" }}>
+        <Link to="/swapTransactions" style={{ width: "100%" }}>
           <Button variant="contained" style={{ backgroundColor: "darkblue" }}>
             View history
           </Button>

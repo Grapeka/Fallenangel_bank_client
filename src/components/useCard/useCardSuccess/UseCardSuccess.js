@@ -40,7 +40,7 @@ const UseCardSuccess = (props) => {
         <div className={classes.minorDetails}>
           <div className={classes.eachDetail}>
             <h4>TransactionID</h4>
-            <span>{Math.floor(100000000 + Math.random() * 900000000000)}</span>
+            <span>xxxxxxxxxx</span>
           </div>
           <div className={classes.eachDetail}>
             <h4>Value</h4>
@@ -79,7 +79,7 @@ const UseCardSuccess = (props) => {
         >
           Back to use credit
         </Button>
-        <Link to="/transactions" style={{ width: "100%" }}>
+        <Link to="/cardTransactions" style={{ width: "100%" }}>
           <Button variant="contained" style={{ backgroundColor: "darkblue" }}>
             View history
           </Button>

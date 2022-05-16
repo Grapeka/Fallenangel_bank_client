@@ -28,14 +28,9 @@ function Register({ Register }) {
     e.preventDefault();
   };
 
-  //valid not blank
-
   const CheckVerify = () => {
     let ps1 = conPass.Password;
     let ps2 = Password;
-
-    //console.log(ps1)
-    //console.log(ps2)
 
     if (ps1 !== ps2) {
       console.log("Password not match");

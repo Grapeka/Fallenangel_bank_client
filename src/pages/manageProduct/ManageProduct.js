@@ -4,7 +4,9 @@ import LinearProgress from "@mui/material/LinearProgress";
 import classes from "./manageProduct.module.scss";
 import Swal from "sweetalert2";
 const ManageProduct = () => {
-  const [subProductId, setSubProductId] = useState(null);
+  const [subProductId, setSubProductId] = useState(
+    Math.floor(Math.random() * 10000000000).toString()
+  );
   const [productName, setProductName] = useState(null);
   const [monthlyPay, setMonthlyPay] = useState(null);
   const [step, setStep] = useState(1);

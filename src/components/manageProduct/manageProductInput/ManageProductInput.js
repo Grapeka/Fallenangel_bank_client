@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import classes from "./manageProductInput.module.scss";
 import Axios from "axios";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const ManageProductInput = (props) => {
   const [subProductId, setSubProductId] = useState(
@@ -9,6 +10,7 @@ const ManageProductInput = (props) => {
   );
   const [productName, setProductName] = useState(props.productName);
   const [monthlyPay, setMonthlyPay] = useState(props.monthlyPay);
+
   const addproduct = () => {
     console.log("Adding product");
     Axios.post("https://fallenangel-bank-api.herokuapp.com/check/product", {
@@ -28,6 +30,9 @@ const ManageProductInput = (props) => {
             productName: productName,
           }
         ).then((response) => {
+          setSubProductId(
+            Math.floor(Math.random() * 1000000000000000).toString()
+          );
           console.log("inserted");
         });
       }

@@ -1,7 +1,8 @@
 .theForm{
-    width: 78.6%;
+    width: 79.6%;
     height: 100%;
     margin: auto;
+    position: relative;
     
     .inForm{
         display: flex;
@@ -28,7 +29,8 @@
         }
 
         .button{
-            margin-top: 1.6%;
+            position: absolute;
+            bottom: 20px;
             display: flex;
             flex-direction: row;
             width: 100%;

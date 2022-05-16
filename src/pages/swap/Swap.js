@@ -8,6 +8,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 
 const Swap = (props) => {
+  const [ex, setEx] = useState(null);
   const youHave = (c) => {
     let x = "";
     for (let i = 0; i < c.length; i++) {
@@ -18,6 +19,11 @@ const Swap = (props) => {
         c[i].balanceCurrency.toString() +
         ",  " +
         " ";
+    }
+    if (x == "") {
+      return (
+        " no currency. " + " " + "Transfer to Angel Exchange to top-up THB"
+      );
     }
     return x;
   };
@@ -30,6 +36,7 @@ const Swap = (props) => {
           citizenId: citizenId,
         }
       ).then((res) => {
+        console.log("res.data");
         console.log(res.data);
         console.log(res.data.length);
         if (res.data.length == 0) {
@@ -85,12 +92,18 @@ const Swap = (props) => {
           step={step}
           setStep={setStep}
           submitValue={submitValue}
+          setEx={setEx}
           setSubmitValue={setSubmitValue}
         />
       );
     } else if (step == 3) {
       return (
-        <SwapComplete step={step} setStep={setStep} submitValue={submitValue} />
+        <SwapComplete
+          ex={ex}
+          step={step}
+          setStep={setStep}
+          submitValue={submitValue}
+        />
       );
     }
   };

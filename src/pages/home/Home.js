@@ -60,7 +60,7 @@ export default function Home(props) {
               autocapitalize: "off",
             },
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: "Yes, Input it!",
           }).then((result) => {
             if (result.isConfirmed) {
               setKyc();
@@ -72,7 +72,6 @@ export default function Home(props) {
         }
       });
     };
-    const getKyc = () => {};
     const getAccounts = (citizenId) => {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/wallet", {
         citizenId: citizenId,
