@@ -212,6 +212,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  autocomplete="off"
                   autoFocus
                   required
                   fullWidth
@@ -229,6 +230,7 @@ export default function SignUp() {
                   name="firstName"
                   required
                   fullWidth
+                  autocomplete="off"
                   id="firstName"
                   label="First Name"
                   onChange={(event) => {
@@ -241,6 +243,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  autocomplete="off"
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -309,6 +312,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  autocomplete="off"
                   name="address"
                   label="Address"
                   type="text"
@@ -322,6 +326,7 @@ export default function SignUp() {
                   fullWidth
                   name="phoneNum"
                   label="phoneNum"
+                  autocomplete="off"
                   type="text"
                   id="phoneNum"
                   onChange={(event) => setPhoneNumber(event.target.value)}
@@ -332,6 +337,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
+                  autocomplete="off"
                   label="Email Address"
                   name="email"
                   onChange={(event) => setEmail(event.target.value)}
