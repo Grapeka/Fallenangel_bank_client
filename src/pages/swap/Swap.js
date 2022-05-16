@@ -8,6 +8,9 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 
 const Swap = (props) => {
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
+  const [am, setAm] = useState(null);
   const [ex, setEx] = useState(null);
   const youHave = (c) => {
     let x = "";
@@ -93,12 +96,18 @@ const Swap = (props) => {
           setStep={setStep}
           submitValue={submitValue}
           setEx={setEx}
+          setFrom={setFrom}
+          setTo={setTo}
+          setAm={setAm}
           setSubmitValue={setSubmitValue}
         />
       );
     } else if (step == 3) {
       return (
         <SwapComplete
+          from={from}
+          to={to}
+          am={am}
           ex={ex}
           step={step}
           setStep={setStep}

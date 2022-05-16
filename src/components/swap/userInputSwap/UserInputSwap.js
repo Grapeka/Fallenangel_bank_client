@@ -35,8 +35,7 @@ const UserInputSwap = (props) => {
       console.log("have x, return");
       console.log(x.balanceCurrency);
       console.log(x.balanceCurrency - amount);
-      if (x.balanceCurrency - amount <= 0) {
-        console.log("Dont't have enough in function");
+      if (x.balanceCurrency - amount < 0) {
         disable = true;
       }
       return x.balanceCurrency;
@@ -165,7 +164,10 @@ const UserInputSwap = (props) => {
           type="text"
           name="amount"
           placeholder="Enter amount "
-          onChange={(event) => setAmount(event.target.value)}
+          onChange={(event) => {
+            props.setAm(event.target.value);
+            setAmount(event.target.value);
+          }}
           required
         />
       </div>
@@ -174,7 +176,10 @@ const UserInputSwap = (props) => {
           <label htmlFor="from">From</label>
           <select
             name="from"
-            onChange={(event) => setFromCurrencyId(event.target.value)}
+            onChange={(event) => {
+              props.setFrom(event.target.value);
+              setFromCurrencyId(event.target.value);
+            }}
             required
           >
             <option style={{ display: "none" }}>Select currency</option>
@@ -196,7 +201,10 @@ const UserInputSwap = (props) => {
           <label htmlFor="to">To</label>
           <select
             name="to"
-            onChange={(event) => setToCurrencyId(event.target.value)}
+            onChange={(event) => {
+              props.setTo(event.target.value);
+              setToCurrencyId(event.target.value);
+            }}
             required
           >
             <option style={{ display: "none" }}>Select currency</option>

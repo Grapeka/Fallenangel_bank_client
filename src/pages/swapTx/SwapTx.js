@@ -4,8 +4,15 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Eclipse } from "react-loading-io";
 const SwapTx = (props) => {
+  const removeNotWantField = (tx) => {
+    tx.map((e, i) => {
+      delete e.citizenId;
+    });
+    return tx;
+  };
   const [citizenId, setCitizenId] = useState(props.continueData[0].citizenId);
   const [swTx, setSwTx] = useState([]);
+
   useEffect(() => {
     const transwap = () => {
       Axios.post(
@@ -21,15 +28,15 @@ const SwapTx = (props) => {
   }, []);
   const heads = [
     "Transaction ID",
-    "CitizenId",
     "From",
     "To",
     "Value",
     "Date and time",
+    "Exchange rate",
   ];
 
   if (swTx.length != 0) {
-    return <TransactionList heads={heads} data={swTx} />;
+    return <TransactionList heads={heads} data={removeNotWantField(swTx)} />;
   }
   return (
     <div

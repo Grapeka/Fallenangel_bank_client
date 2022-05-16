@@ -14,14 +14,14 @@ const SwapComplete = (props) => {
         <div className={classes.flow}>
           <div className={classes.from}>
             <h4>From</h4>
-            <span>{props.submitValue.fromCurrency}</span>
+            <span>{props.from}</span>
           </div>
           <div className={classes.flowSymbol}>
             <ArrowForward />
           </div>
           <div className={classes.to}>
             <h4>To</h4>
-            <span>{props.submitValue.toCurrency}</span>
+            <span>{props.to}</span>
           </div>
         </div>
         <div className={classes.border}></div>
@@ -32,11 +32,11 @@ const SwapComplete = (props) => {
           </div>
           <div className={classes.eachDetail}>
             <h4>Amount</h4>
-            <span>{props.ex}</span>
+            <span>{props.am}</span>
           </div>
           <div className={classes.eachDetail}>
             <h4>Exchange rate</h4>
-            <span>{props.submitValue.exchangeRate}</span>
+            <span>{props.ex}</span>
           </div>
           <div className={classes.eachDetail}>
             <h4>Fee</h4>

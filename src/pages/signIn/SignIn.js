@@ -23,14 +23,11 @@ export default function SignIn(props) {
     password: null,
   });
   const login = (email, password) => {
-    console.log("Axios Login");
-    console.log(email, password);
     Axios.post("https://fallenangel-bank-api.herokuapp.com/login", {
       email: email,
       password: password,
     }).then((response) => {
       if (response.data.length != 0) {
-        console.log(response.data);
         props.setContinueData(response.data);
       }
     });
@@ -38,8 +35,6 @@ export default function SignIn(props) {
 
   let history = useHistory();
   useEffect(() => {
-    console.log("Continue data updated");
-    console.log(props.continueData);
     if (props.continueData != null) {
       console.log("Welcometo Angel Bank: " + props.continueData[0].fName);
       history.push("/home");
@@ -47,23 +42,8 @@ export default function SignIn(props) {
   }, [props.continueData, props.setContinueData]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userLoginData);
     login(userLoginData.email, userLoginData.password);
-    //if -> auth sql command
-    //console.log("setRedirect");
-    //history.push("/home");
-    /* props.setUserAuth({
-      gmail: data.get("email"),
-      authStatus: true,
-      userRole: "User",
-    });
-    history.push("/home"); */
   };
-
-  /*if (redirect) {
-    console.log("Redirect");
-    return <Redirect to="/home" />;
-  } */
 
   return (
     <ThemeProvider theme={theme}>

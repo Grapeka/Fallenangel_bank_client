@@ -11,7 +11,6 @@ export default function FeaturedInfo(props) {
 
     let amountCr = 0;
     props.userCurrency.map((e) => {
-      console.log(e);
       amountCr++;
     });
     return (

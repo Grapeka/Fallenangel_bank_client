@@ -31,8 +31,8 @@ export default function Home(props) {
     });
   };
 
-  const [userCurrency, setUserCurrency] = useState(null);
-  const [userAccountData, setUserAccountData] = useState(null);
+  const [userCurrency, setUserCurrency] = useState([]);
+  const [userAccountData, setUserAccountData] = useState([]);
   useEffect(() => {
     const getTotalYearlyTx = () => {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/transaction-all", {
@@ -94,9 +94,15 @@ export default function Home(props) {
     getAccounts(props.continueData[0].citizenId);
     getTotalCurrency(props.continueData[0].citizenId);
   }, []);
-  return (
-    <>
-      {txData2 && txData && userAccountData && userCurrency ? (
+
+  if (
+    txData2.length != 0 &&
+    txData.length != 0 &&
+    userAccountData.length != 0 &&
+    userCurrency.length != 0
+  ) {
+    return (
+      <>
         <div className="home">
           <FeaturedInfo
             userAccountData={userAccountData}
@@ -113,11 +119,21 @@ export default function Home(props) {
             <WidgetLg data={txData2} />
           </div>
         </div>
-      ) : (
-        <div className="loading">
-          <Eclipse size={200} color={"#a8c0d3"} />
-        </div>
-      )}
-    </>
+      </>
+    );
+  }
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "100px 0 0 0",
+      }}
+    >
+      <Eclipse size={200} color={"#a8c0d3"} />
+    </div>
   );
 }
