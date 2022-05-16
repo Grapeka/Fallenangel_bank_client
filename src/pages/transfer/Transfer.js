@@ -15,7 +15,6 @@ const Transfer = (props) => {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/wallet", {
         citizenId: citizenId,
       }).then((response) => {
-        console.log(response.data);
         setUserAccounts(response.data);
       });
     };
@@ -26,8 +25,6 @@ const Transfer = (props) => {
           citizenId: citizenId,
         }
       ).then((res) => {
-        console.log(res.data);
-        console.log(res.data.length);
         setUserCurrency(res.data);
       });
     };

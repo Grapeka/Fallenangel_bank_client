@@ -1,81 +1,58 @@
 import TransactionList from "../../components/transaction/TransactionList";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Eclipse } from "react-loading-io";
+import Axios from "axios";
+const CardTx = (props) => {
+  const [cardTx, setCardTx] = useState([]);
+  const [citizenId, setCitizenId] = useState(props.continueData[0].citizenId);
+  const [userCard, setUserCards] = useState([]);
+  useEffect(() => {
+    const getCardsTx = (cardId) => {
+      Axios.post(
+        "https://fallenangel-bank-api.herokuapp.com/transaction/card",
+        {
+          cardId: cardId,
+        }
+      ).then((res) => {
+        setCardTx(res.data);
+      });
+    };
+    const getCards = () => {
+      Axios.post("https://fallenangel-bank-api.herokuapp.com/customer/card", {
+        citizenId: citizenId,
+      }).then((response) => {
+        getCardsTx(response.data[0].cardId);
+      });
+    };
 
-const CardTx = () => {
+    getCards();
+  }, []);
   const heads = [
     "Transaction ID",
     "From",
     "To",
     "Value",
-    "Due date",
     "Date and time",
+    "Note",
   ];
-  const cardTransactions = [
-    {
-      id: "1",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "2",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "3",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "4",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "5",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "6",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "7",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-    {
-      id: "8",
-      fromAccount: "4827190022",
-      toAccount: "7721928301",
-      value: 800.5,
-      dueDate: "2023-04-20 13:48:22",
-      dateAndTime: "2022-04-20 13:48:22",
-    },
-  ];
-  return <TransactionList heads={heads} data={cardTransactions} />;
+  if (cardTx.length != 0) {
+    return <TransactionList heads={heads} data={cardTx} />;
+  }
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "100px 0 0 0",
+      }}
+    >
+      <Eclipse size={200} color={"#a8c0d3"} />
+    </div>
+  );
 };
 
 export default CardTx;

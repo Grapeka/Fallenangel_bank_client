@@ -97,10 +97,17 @@ const Wallet = (props) => {
           </div>
         </div>
       ) : (
-        <div className={classes.pageContainerLoading}>
-          <div className={classes.walletContainer}>
-            <Eclipse size={300} color="#a8c0d3" />
-          </div>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "100px 0 0 0",
+          }}
+        >
+          <Eclipse size={200} color={"#a8c0d3"} />
         </div>
       )}
     </>

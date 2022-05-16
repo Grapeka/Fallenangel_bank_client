@@ -8,6 +8,19 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 
 const Swap = (props) => {
+  const youHave = (c) => {
+    let x = "";
+    for (let i = 0; i < c.length; i++) {
+      x =
+        x +
+        c[i].currencyId.toString() +
+        " : " +
+        c[i].balanceCurrency.toString() +
+        ",  " +
+        " ";
+    }
+    return x;
+  };
   const [userCurrency, setUserCurrency] = useState([]);
   useEffect(() => {
     const getTotalCurrency = (citizenId) => {
@@ -29,6 +42,15 @@ const Swap = (props) => {
             confirmButtonText: "OK",
           });
         }
+
+        Swal.fire({
+          title: "Hi user!",
+          text: `You have ${youHave(res.data)}`,
+          icon: "warning",
+          showCancelButton: false,
+          confirmButtonColor: "darkblue",
+          confirmButtonText: "OK",
+        });
         setUserCurrency(res.data);
       });
     };

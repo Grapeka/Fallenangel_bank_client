@@ -57,7 +57,7 @@ const AppContent = (props) => {
             <UseCard continueData={props.continueData} />
           </Route>
           <Route path="/cardTransactions">
-            <CardTx />
+            <CardTx continueData={props.continueData} />
           </Route>
           <Route path="/swap">
             <Swap continueData={props.continueData} />
@@ -72,7 +72,7 @@ const AppContent = (props) => {
             <Report3 />
           </Route>
           <Route path="/swapTransactions">
-            <SwapTx />
+            <SwapTx continueData={props.continueData} />
           </Route>
           <Route path="/manageProduct">
             <ManageProduct />

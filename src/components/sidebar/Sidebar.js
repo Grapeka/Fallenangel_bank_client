@@ -16,7 +16,6 @@ import AddchartIcon from "@mui/icons-material/Addchart";
 import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {
-  console.log(props.continueData);
   const handleRole = () => {
     if (props.continueData[0].role == "User") {
       return 1;
@@ -30,7 +29,6 @@ export default function Sidebar(props) {
   };
   const [selectedId, setSelectedId] = useState(handleRole());
   const handleActive = (e) => {
-    console.log(e.target.id);
     setSelectedId(e.target.id);
   };
   const generateLink = (to, name, Icon, id) => {
@@ -80,7 +78,7 @@ export default function Sidebar(props) {
               )}
               {generateLink(
                 "/transactions",
-                "Transactiions",
+                "Transactions",
                 <History className={classes.sidebarIcon} />,
                 4
               )}

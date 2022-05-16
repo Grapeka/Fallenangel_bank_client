@@ -12,8 +12,6 @@ const UserConfirmTransfer = (props) => {
       return 14;
     }
   };
-  console.log("submitValue");
-  console.log(props.submitValue);
   const [citizenId, setCitizenId] = useState(props.citizenId);
 
   const [fromAccount, setFromAccount] = useState(
@@ -38,8 +36,6 @@ const UserConfirmTransfer = (props) => {
     tranId(props.submitValue.destinationBank)
   );
   const transaction = () => {
-    console.log("transactionTypeId");
-    console.log(transactionTypeId);
     if (transactionTypeId == 14) {
       console.log("Doing top-up currency THB");
       Axios.put("https://fallenangel-bank-api.herokuapp.com/update/balance", {
@@ -59,8 +55,6 @@ const UserConfirmTransfer = (props) => {
           }
         ).then(() => {
           console.log("props.userCurrency.length != 0");
-          console.log(props.userCurrency);
-          console.log(props.userCurrency.length == 0);
           if (props.userCurrency.length == 0) {
             console.log("Trying post");
             Axios.post(
@@ -101,8 +95,6 @@ const UserConfirmTransfer = (props) => {
         }
       ).then((response) => {
         if (response) {
-          console.log("response");
-          console.log(response.data);
           console.log(
             response.data.length == 0 ? "9999999999" : response.data[0].balance
           );
@@ -130,7 +122,6 @@ const UserConfirmTransfer = (props) => {
             .then(() => {
               console.log("Saving transaction");
               console.log("categoryId");
-              console.log(categoryId);
               Axios.post(
                 "https://fallenangel-bank-api.herokuapp.com/create/transaction",
                 {
@@ -155,7 +146,6 @@ const UserConfirmTransfer = (props) => {
     }
   };
 
-  console.log(props.submitValue);
   return (
     <div className={classes.theForm}>
       <div className={classes.inForm}>

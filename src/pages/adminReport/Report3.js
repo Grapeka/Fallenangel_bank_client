@@ -4,7 +4,7 @@ import Axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Eclipse } from "react-loading-io";
-const heads = ["Citizen ID", "Receive", "Spend", "Defference"];
+const heads = ["Citizen ID", "Receive", "Spend", "Difference"];
 
 const Report3 = () => {
   const [reportData, setReportData] = useState([]);

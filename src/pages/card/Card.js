@@ -15,17 +15,17 @@ const Card = (props) => {
   const [userCards, setUserCards] = useState([]);
   const [selectedData, setSelectedData] = useState(null);
   const [selectActiveId, setSelectActiveId] = useState(null);
+  const [userProducts, setUserProducts] = useState([]);
 
   useEffect(() => {
     const getCards = (citizenId) => {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/customer/card", {
         citizenId: citizenId,
       }).then((response) => {
-        console.log(response.data);
-        console.log(response.data[0].accountNum);
         setUserCards(response.data);
         setSelectedData(response.data[0]);
         setSelectActiveId(response.data[0].cardId);
+        checkUserProduct(response.data[0].cardId);
       });
     };
     const getProducts = () => {
@@ -36,6 +36,19 @@ const Card = (props) => {
           setSystemProducts(response.data);
         }
       );
+    };
+    const checkUserProduct = (cardId) => {
+      console.log("Checking product");
+      Axios.post(
+        "https://fallenangel-bank-api.herokuapp.com/card/subscription",
+        {
+          cardId: cardId,
+        }
+      ).then((response) => {
+        console.log("User Prudc");
+        console.log(response.data);
+        setUserProducts(response.data);
+      });
     };
     getProducts();
     getCards(props.continueData[0].citizenId);
@@ -57,7 +70,7 @@ const Card = (props) => {
 
   return (
     <>
-      {userCards && selectedData && selectActiveId ? (
+      {userProducts && userCards && selectedData && selectActiveId ? (
         <div className={classes.cardContainer}>
           <div className={classes.leftContainer}>
             <div className={classes.coupleWidgets}>
@@ -65,18 +78,16 @@ const Card = (props) => {
                 className={classes.cardExpenseCategory + " " + classes.widget}
               >
                 <h3 className={classes.head}>Expenses by category</h3>
-                <CategorySpending />
+                <CategorySpending userProducts={userProducts} />
               </div>
               <div className={classes.productBox + " " + classes.widget}>
                 <h3 className={classes.head}>Subscription products</h3>
                 <div className={classes.products}>
-                  {selectedData && (
-                    <SubscriptionProduct
-                      systemProducts={systemProducts}
-                      userAllCards={userCards}
-                      usedCard={selectedData}
-                    />
-                  )}
+                  <SubscriptionProduct
+                    systemProducts={systemProducts}
+                    userAllCards={userCards}
+                    usedCard={selectedData}
+                  />
                 </div>
               </div>
             </div>

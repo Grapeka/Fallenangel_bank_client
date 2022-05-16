@@ -19,8 +19,6 @@ export default function Home(props) {
         Value: e.value,
       });
     });
-    console.log("Finish");
-    console.log(x);
     return x;
   };
   const [kycStatus, setKycStatus] = useState();
@@ -40,7 +38,6 @@ export default function Home(props) {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/transaction-all", {
         citizenId: props.continueData[0].citizenId,
       }).then((res) => {
-        console.log(res.data);
         setTxData2(res.data);
         setTxData(ChudRabeab(res.data));
       });
@@ -51,7 +48,6 @@ export default function Home(props) {
         password: props.continueData[0].password,
       }).then((response) => {
         console.log("getkyc");
-        console.log(response.data[0].kycStatus);
         if (response.data[0].kycStatus != 1) {
           Swal.fire({
             title: "Please do KYC",
@@ -81,7 +77,6 @@ export default function Home(props) {
       Axios.post("https://fallenangel-bank-api.herokuapp.com/wallet", {
         citizenId: citizenId,
       }).then((response) => {
-        console.log(response.data);
         setUserAccountData(response.data);
       });
     };
@@ -99,15 +94,9 @@ export default function Home(props) {
     getkyc();
     getAccounts(props.continueData[0].citizenId);
     getTotalCurrency(props.continueData[0].citizenId);
-
-    console.log("kycStatus");
-    console.log(kycStatus);
   }, []);
   return (
     <>
-      {console.log("txData")}
-      {console.log(txData)}
-
       {txData2 && txData && userAccountData && userCurrency ? (
         <div className="home">
           <FeaturedInfo

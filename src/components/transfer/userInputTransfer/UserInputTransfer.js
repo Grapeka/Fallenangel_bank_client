@@ -5,15 +5,12 @@ import Swal from "sweetalert2";
 const UserInputTransfer = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("from account: " + props.data[0].accountNum);
     const compareAccount = props.submitValue.fromAccount
       ? props.submitValue.fromAccount
       : props.data[0].accountNum;
     const balanceUserHas = props.data.filter(
       (e) => e.accountNum == compareAccount
     );
-    console.log("balanceUserHas: ");
-    console.log(balanceUserHas[0].balance);
     if (props.submitValue.value <= balanceUserHas[0].balance) {
       props.setStep(props.step + 1);
     } else {
@@ -32,10 +29,6 @@ const UserInputTransfer = (props) => {
         confirmButtonColor: "darkblue",
       });
     }
-
-    console.log("e balance");
-    console.log(balanceUserHas);
-    console.log("Submit val: " + props.submitValue.value);
   };
   return (
     <form onSubmit={handleSubmit} className={classes.theForm}>
@@ -47,8 +40,6 @@ const UserInputTransfer = (props) => {
           <select
             name="fromAccount"
             onChange={(event) => {
-              console.log("even account selected");
-              console.log(event.target.value);
               props.setSubmitValue({
                 ...props.submitValue,
                 fromAccount: event.target.value,
@@ -89,7 +80,7 @@ const UserInputTransfer = (props) => {
             autoComplete="off"
             type="text"
             name="toAccount"
-            placeholder="Enter eecipient account no."
+            placeholder="Enter Recipient account no."
             onChange={(event) =>
               props.setSubmitValue({
                 ...props.submitValue,

@@ -9,12 +9,14 @@ const UnallowedModal = (props) => {
         }}
         className={classes.container}
       >
-        <h1 style={{ color: "white" }}>
-          Only support 1315px width or bigger screen
-        </h1>
-        <h1 style={{ color: "white" }}>
-          Please change your device, or adjust your screen size
-        </h1>
+        <div className={classes.alert}>
+          <h1 style={{ color: "white" }}>
+            Our service only support 1315px width or bigger screen
+          </h1>
+          <h1 style={{ color: "white" }}>
+            Please change your device, or adjust your screen size
+          </h1>
+        </div>
       </div>
     </>,
     document.getElementById("overlay-root")

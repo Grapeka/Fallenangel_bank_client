@@ -3,39 +3,7 @@ import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantity
 import Swal from "sweetalert2";
 import Axios from "axios";
 import { useState, useEffect } from "react";
-const SUB_PRODUCT_DATA = [
-  {
-    productId: 1,
-    productPrice: 300,
-    productName: "Youtube",
-  },
-  {
-    productId: 2,
-    productPrice: 325,
-    productName: "Garena",
-  },
-  {
-    productId: 3,
-    productPrice: 100,
-    productName: "Google",
-  },
-  {
-    productId: 4,
-    productPrice: 80,
-    productName: "Stream",
-  },
-  {
-    productId: 5,
-    productPrice: 180,
-    productName: "Football TV",
-  },
-  {
-    productId: 6,
-    productPrice: 280,
-    productName: "Snack",
-  },
-];
-
+import { Eclipse } from "react-loading-io";
 const SubscriptionProduct = (props) => {
   console.log(props.systemProducts);
   console.log(props.usedCard.cardId);
@@ -43,6 +11,7 @@ const SubscriptionProduct = (props) => {
   const [userProducts, setUserProducts] = useState([]);
 
   function getDifferenceProduct(array1, array2) {
+    console.log("getDifferenceProduct");
     console.log("arr1");
     console.log(array1);
     console.log("arr2");
@@ -83,7 +52,11 @@ const SubscriptionProduct = (props) => {
     });
   };
 
-  if (props.systemProducts.length != 0 && userProducts.length != 0) {
+  if (props.systemProducts.length != 0) {
+    console.log("show");
+    console.log(getDifferenceProduct(props.systemProducts, userProducts));
+    console.log(props.systemProducts);
+    console.log(userProducts);
     return (
       <div className={classes.subProductContainer}>
         {getDifferenceProduct(props.systemProducts, userProducts).map(
@@ -141,7 +114,20 @@ const SubscriptionProduct = (props) => {
       </div>
     );
   }
-  return null;
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "50px 0 0 0",
+      }}
+    >
+      <Eclipse size={200} color={"#a8c0d3"} />
+    </div>
+  );
 };
 
 export default SubscriptionProduct;

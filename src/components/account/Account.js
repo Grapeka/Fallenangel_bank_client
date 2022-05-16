@@ -2,12 +2,8 @@ import { useState } from "react";
 import classes from "./account.module.scss";
 
 const Account = (props) => {
-  //const [accountData, setAccountData] = useState(props.accountData);
-  console.log("account page");
-  console.log(props.accountData);
   const formatAccountNumber = (aNum) => {
     aNum = aNum.toString();
-    console.log(aNum.length);
     const a = aNum.slice(0, 3);
     const b = aNum.slice(3, 6);
     const c = aNum.slice(6, 9);

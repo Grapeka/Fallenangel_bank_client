@@ -6,4 +6,13 @@
     height: 100vh;
     z-index: 10;
     background: rgba(70, 98, 189, 0.991);
+
+    .alert{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25%;
+        line-height: 62px;
+    }
 }
