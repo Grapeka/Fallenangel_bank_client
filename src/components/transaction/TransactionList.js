@@ -36,7 +36,7 @@ export default function TransactionList(props) {
                       <span>{e[Object.keys(e)[2]]}</span>
                     </td>
                     <td>
-                      <span>{e[Object.keys(e)[3]]} THB</span>
+                      <span>{e[Object.keys(e)[3]]}</span>
                     </td>
                     <td>
                       <span>{e[Object.keys(e)[4]]} </span>
