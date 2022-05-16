@@ -226,7 +226,6 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
                   name="firstName"
                   required
                   fullWidth
@@ -245,7 +244,6 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  autoComplete="family-name"
                   onChange={(event) => setLName(event.target.value)}
                 />
               </Grid>
@@ -301,6 +299,7 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  type="password"
                   id="pin"
                   label="Pin"
                   onChange={(event) => setPin(event.target.value)}
@@ -335,7 +334,6 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </Grid>
@@ -347,7 +345,6 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </Grid>
