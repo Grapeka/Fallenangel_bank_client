@@ -47,7 +47,6 @@ export default function SignUp() {
       email: email,
       citizenId: citizenId,
     }).then((response) => {
-      console.log(response.data);
       if (response.data.length != 0) {
         console.log("Created already");
       } else {
@@ -220,7 +219,6 @@ export default function SignUp() {
                   label="Citizen ID"
                   name="Citizen ID"
                   onChange={(event) => {
-                    console.log(event.target.value);
                     setCitizenId(event.target.value);
                   }}
                 />
@@ -234,7 +232,6 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   onChange={(event) => {
-                    console.log(event.target.value);
                     setFName(event.target.value);
                   }}
                 />

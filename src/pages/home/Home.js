@@ -94,12 +94,10 @@ export default function Home(props) {
     getAccounts(props.continueData[0].citizenId);
     getTotalCurrency(props.continueData[0].citizenId);
   }, []);
-
   if (
     txData2.length != 0 &&
     txData.length != 0 &&
-    userAccountData.length != 0 &&
-    userCurrency.length != 0
+    userAccountData.length != 0
   ) {
     return (
       <>
