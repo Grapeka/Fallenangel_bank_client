@@ -25,7 +25,7 @@ export default function FeaturedInfo(props) {
               }).format(sumAc)}
             </span>
             <span className="featuredMoneyRate">
-              -11 <ArrowDownward className="featuredIcon negative" />
+              +0 <ArrowDownward className="featuredIcon negative" />
             </span>
           </div>
           <span className="featuredSub">Compared to last month</span>
@@ -40,7 +40,7 @@ export default function FeaturedInfo(props) {
               {amountCr} {amountCr == 0 || 1 ? "currency" : "currencies"}
             </span>
             <span className="featuredMoneyRate">
-              +5 <ArrowUpward className="featuredIcon positive" />
+              +0 <ArrowUpward className="featuredIcon positive" />
             </span>
           </div>
           <span className="featuredSub">Compared to last month</span>
